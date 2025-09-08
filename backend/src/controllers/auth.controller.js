@@ -46,8 +46,8 @@ export async function signup(req , res){
         res.cookie("jwt", token , {
             maxAge: 7 * 24 * 60 * 60 * 1000,
             httpOnly: true,
-            sameSite: "strict",
-            secure: process.env.NODE_ENVIRONMENT = "production"
+            sameSite: "None",
+            secure: process.env.NODE_ENVIRONMENT === "production"
         })
         res.status(201).json({success : true , user : newUser})
     } catch (error) {
