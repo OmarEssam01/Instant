@@ -17,13 +17,28 @@ const port = process.env.PORT
 
 const __dirname = path.resolve()
 
-app.use(cors({
-    origin: [
-        "http://localhost:5173",                     // local dev
-        "https://instant-video-call.netlify.app"       // your Netlify frontend
-    ],
-    credentials: true,
-}));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "https://instant-video-call.netlify.app",
+      ];
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // allow cookies/auth headers
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+// Handle preflight requests globally
+app.options("*", cors());
+
 
 app.use(express.json());
 app.use(cookieParser());
