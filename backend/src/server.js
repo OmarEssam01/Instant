@@ -20,7 +20,7 @@ const __dirname = path.resolve()
 app.use(cors({
     origin: [
         "http://localhost:5173",                     // local dev
-        "https://instant-video-call.netlify.app/"       // your Netlify frontend
+        "https://instant-video-call.netlify.app"       // your Netlify frontend
     ],
     credentials: true,
 }));
