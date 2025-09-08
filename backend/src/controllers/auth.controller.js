@@ -47,7 +47,7 @@ export async function signup(req , res){
             maxAge: 7 * 24 * 60 * 60 * 1000,
             httpOnly: true,
             sameSite: "None",
-            secure: process.env.NODE_ENVIRONMENT === "production"
+            secure: process.env.NODE_ENV === "production"
         })
         res.status(201).json({success : true , user : newUser})
     } catch (error) {
