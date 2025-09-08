@@ -18,9 +18,13 @@ const port = process.env.PORT
 const __dirname = path.resolve()
 
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true , //allow frontend to send the cookies
-}))
+    origin: [
+        "http://localhost:5173",                     // local dev
+        "https://your-netlify-app.netlify.app"       // your Netlify frontend
+    ],
+    credentials: true,
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -40,5 +44,5 @@ if(process.env.NODE_ENV === "production") {
 //     console.log(`server is running on port ${port} `)
 //     ConnectDB();
 // })
-
+ConnectDB();
 export default app;
