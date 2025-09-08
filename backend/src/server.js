@@ -36,7 +36,9 @@ if(process.env.NODE_ENV === "production") {
         res.sendFile(path.join(__dirname,"../frontend/instant/dist/index.html"))
     })
 }
-app.listen(port , () => {
-    console.log(`server is running on port ${port} `)
-    ConnectDB();
-})
+// app.listen(port , () => {
+//     console.log(`server is running on port ${port} `)
+//     ConnectDB();
+// })
+
+export default app;
