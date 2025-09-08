@@ -4,6 +4,7 @@ import { getUserFriends } from '../lib/api'
 import { Link } from 'react-router'
 import { UsersIcon } from 'lucide-react'
 import FriendCard from '../components/FriendCard'
+import NoFriendsFound from '../components/NoFriendsFound'
 
 const FriendsPage = () => {
       const queryClient = useQueryClient()
