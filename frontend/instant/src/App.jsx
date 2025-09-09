@@ -25,7 +25,7 @@ const App = () => {
  const isOnboarded = authUser?.isOnboarded;
     
     if (isLoading) return <PageLoader/>
-  return (<div className='h-screen' data-theme={theme}>
+  return (<div className='min-h-screen' data-theme={theme}>
       <Routes>
         <Route path="/" element ={ isAuthenticated && isOnboarded ? (
           <Layout showSidebar>
